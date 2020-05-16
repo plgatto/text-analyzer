@@ -5,14 +5,13 @@ import java.util.Map;
 
 public class TextAnalyzer {
 
-	// TODO update with regex
 	public Map<String, Integer> analyze(String text, int wordsSetSize) {
 		Map<String, Integer> wordsSets = new HashMap<String, Integer>();
 		text = text.toLowerCase();
-		String[] subSentences = text.split(",");
+		String[] subSentences = text.split("\\p{Punct}");
 		for(String sentence : subSentences) {
 //			System.out.println(sentence);
-			String[] words = sentence.strip().split(" ");
+			String[] words = sentence.split("\\s+");
 			for (int i = 0; i < words.length - 1; i++) {
 				StringBuilder sb = new StringBuilder();
 				for (int k = 0; k < wordsSetSize; k++) {
