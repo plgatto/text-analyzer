@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class TextAnalyzer {
 
-	public Map<String, Integer> analyze(String text, int wordsSetSize) throws IllegalStateException {
+	public Map<String, Integer> analyze(String text, int wordsSetSize) {
 		Map<String, Integer> wordsSets = new HashMap<String, Integer>();
 		text = text.toLowerCase();
 		String[] subSentences = text.split("\\p{Punct}");
@@ -18,9 +18,8 @@ public class TextAnalyzer {
 					sb.append(words[i + k]).append(" ");
 				}
 				String wordsSet = sb.toString().strip();
-				if(wordsSet.split(" ").length!=3) {
-					throw new IllegalStateException("Words sets does not contains " + wordsSetSize + " words\n"
-							+ "Words set: " + wordsSet + "\n"
+				if (wordsSet.split(" ").length != wordsSetSize) {
+					System.err.println("Words sets \"" + wordsSet + "\" does not contains " + wordsSetSize + " words\n"
 							+ "Sentence: " + sentence);
 				}
 				if (!wordsSets.containsKey(wordsSet)) {
