@@ -18,7 +18,8 @@ public class TextAnalyzerTest {
 	
 	@Test
 	public void testAnalyzeSentence() {
-		words = textAnalyzer.analyze(TEST_SENTENCE);
+		int wordSetSize = 2;
+		words = textAnalyzer.analyze(TEST_SENTENCE, wordSetSize); 
 		assertEquals(Integer.valueOf(2), words.get("lorem ipsum"));
 		assertEquals(Integer.valueOf(2), words.get("ipsum dolor"));
 		assertEquals(Integer.valueOf(2), words.get("dolor sit"));
