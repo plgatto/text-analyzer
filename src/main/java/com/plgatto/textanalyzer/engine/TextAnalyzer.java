@@ -11,7 +11,7 @@ public class TextAnalyzer {
 		String[] subSentences = text.split("\\p{Punct}");
 		for (String sentence : subSentences) {
 //			System.out.println(sentence);
-			String[] words = sentence.split("\\s+");
+			String[] words = sentence.strip().split("\\s+");
 			for (int i = 0; i < words.length - wordsSetSize; i++) {
 				StringBuilder sb = new StringBuilder();
 				for (int k = 0; k < wordsSetSize; k++) {
